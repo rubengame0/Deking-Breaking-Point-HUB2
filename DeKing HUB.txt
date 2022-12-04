@@ -1,0 +1,66 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("DeKingHUB", "Midnight")
+
+--Main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+
+MainSection:NewButton("AimBot", "it's an aimbot xD ", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/rubengame0/AimBot-Breaking-Point/main/BP%20(1)%20(1).txt"))()
+end)
+
+MainSection:NewToggle("Hyper-Human", "What are you staring at? ", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+
+MainSection:NewButton("KeyBoard", "This is Recommended for Mobile", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+
+
+end)
+
+
+--AutoFarm
+local AutoFarm = Window:NewTab("AutoFarm")
+local AutoFarmSection =AutoFarm:NewSection("AutoFarm")
+
+AutoFarmSection:NewButton("AutoFarm", "In 10 or 15 minutes farm 100k ", function()
+getgenv().AutoFarm = true 
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/Breaking-Point'))()
+
+
+end)
+
+
+--Credits
+local Credits = Window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("Credits")
+
+CreditsSection:NewButton("Credits To MrBirux", "Script by MrBirux", function()
+    print("Script By MrBirux")
+end)
+
+
+--Other
+local Other = Window:NewTab("Other")
+local OtherSection = Other:NewSection("Other")
+
+OtherSection:NewKeybind("Close UI", "Close UI", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+OtherSection:NewButton("FullBright", "look through the dark ", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/jZRYfLXX", true))()
+end)
+
+OtherSection:NewButton("HitBox", "give more to the heads ", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/1i2wYMDx", true))()
+end)
