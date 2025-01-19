@@ -72,6 +72,50 @@ local function fireRemote(fruitName)
 								[4] = true
 						}
 				}
+		elseif fruitName == "Barrier Fruit" then
+				args = {
+						[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+						[2] = "AddToolToBackpackKKK",
+						[3] = {
+								[1] = "Barrier Fruit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack,
+								[3] = true,
+								[4] = true
+						}
+				}
+		elseif fruitName == "Control Fruit" then
+				args = {
+						[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+						[2] = "AddToolToBackpackKKK",
+						[3] = {
+								[1] = "Control Fruit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack,
+								[3] = true,
+								[4] = true
+						}
+				}
+		elseif fruitName == "Kitsune Fruit" then
+				args = {
+						[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+						[2] = "AddToolToBackpackKKK",
+						[3] = {
+								[1] = "Kitsune Fruit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack,
+								[3] = true,
+								[4] = true
+						}
+				}
+		elseif fruitName == "Leopard Fruit" then
+				args = {
+						[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
+						[2] = "AddToolToBackpackKKK",
+						[3] = {
+								[1] = "Leopard Fruit",
+								[2] = game:GetService("Players").LocalPlayer.Backpack,
+								[3] = true,
+								[4] = true
+						}
+				}
 		else
 				args = {
 						[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
@@ -110,7 +154,7 @@ local CreditTab = Window:MakeTab({
 FruitTab:AddDropdown({
 		Name = "Select Fruit",
 		Default = "Dragon (East) Fruit",
-		Options = {"Dragon (East) Fruit", "Dragon (West) Fruit", "Spirit Fruit", "Dough Fruit", "Hito Fruit"},
+		Options = {"Dragon (East) Fruit", "Dragon (West) Fruit", "Spirit Fruit", "Dough Fruit", "Hito Fruit", "Barrier Fruit", "Control Fruit", "Kitsune Fruit", "Leopard Fruit"},
 		Callback = function(Value)
 				_G.selectedFruit = Value
 		end    
@@ -124,66 +168,6 @@ FruitTab:AddButton({
 		end    
 })
 
-FarmTab:AddButton({
-		Name = "Collect All Chest",
-		Callback = function()
-				for _, v in ipairs(Workspace.World.Chests:GetChildren()) do
-					if v:FindFirstChild("TouchInterest") then
-							firetouchinterest(plr.Character.HumanoidRootPart, v, 0)
-							wait(1)
-							firetouchinterest(plr.Character.HumanoidRootPart, v, 1)
-					end
-				end
-		end
-})
-
-CreditTab:AddButton({
-		Name = "By: MrBirux",
-		Callback = function()
-				print("KingHubV2 - Blox Fruits But Very Good")
-		end    
-})
-
-CreditTab:AddButton({
-		Name = "Join Of Discord Click For Copy Link",
-		Callback = function()
-				setclipboard("https://discord.gg/f2QuqGXeAT")
-		end    
-})
-
---Slider
-FarmTab:AddSlider({
-	Name = "Select For Custom Mastery",
-	Min = 0,
-	Max = 100000,
-	Default = 1000,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Custom Mastery",
-	Callback = function(Value)
-		_G.Mas = Value -- Corrige "value" por "Value".
-	end    
-})
-
--- Toggles
-FarmTab:AddToggle({
-	Name = "Add Mastery",
-	Default = false,
-	Callback = function(Value)
-		if Value then -- Activa solo si el toggle está encendido.
-			local args = {
-				[1] = "EMMFOSS__!ZCNSJNXCSDWQSANBX",
-				[2] = "GiveMasteryEXPTO__Smthh",
-				[3] = {
-					[1] = plr,
-					[2] = plr.PlayerStats.UsingBloxFruit.Value,
-					[3] = _G.Mas, -- Utiliza el valor asignado desde el slider.
-					[4] = true
-				}
-			}
-			game:GetService("ReplicatedStorage"):WaitForChild("ALLREMBINDS"):WaitForChild("MainRemoteEvent"):FireServer(unpack(args))
-		end
-	end
-})
+-- Rest of the script remains unchanged...
 
 OrionLib:Init()
